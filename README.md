@@ -36,17 +36,17 @@ All features are accessible via a text menu in `LibraryManagementSystem`.
 ## Menu Options
 The CLI exposes these options:
 
-- 1. Add Book to Inventory
-- 2. Delete Book from Inventory
-- 3. Display Books (In-order)
-- 4. Borrow a Book (Add Request)
-- 5. Issue Book (Process Borrow Request)
-- 6. Display Borrow Queue
-- 7. Return a Book (record)
-- 8. Process to Return a Book
-- 9. Remove Book from User History
-- 10. Display User History
-- 11. Display All Users' Histories
+1. Add Book to Inventory
+2. Delete Book from Inventory
+3. Display Books (In-order)
+4. Borrow a Book (Add Request)
+5. Issue Book (Process Borrow Request)
+6. Display Borrow Queue
+7. Return a Book (record)
+8. Process to Return a Book
+9. Remove Book from User History
+10. Display User History
+11. Display All Users' Histories
 - 0. Exit
 
 ## How it works (quick flow)
@@ -57,28 +57,13 @@ The CLI exposes these options:
 - Process returns (8) which pops and finalizes the return.
 - Inspect/maintain reading histories (9–11).
 
-## Build and Run (Windows PowerShell)
+## How to Run on any IDE (IntelliJ IDEA Recommended)
 Prerequisites: JDK 8+ in PATH.
 
-From the project root folder (`mid-lms`):
+### Clone the repository and navigate to the root of the mid-lms folder. Open it in your IDE. After opening, you can see the src/LibraryManagementSystem.java file and run it easily.
 
-```powershell
-# 1) (Optional) ensure we’re in the project folder
-cd "c:\Users\Nilupul Madhusanka\Desktop\Semester 5\DSA\New folder\Mid\mid-lms"
-
-# 2) Compile into ./out
-mkdir out -ErrorAction SilentlyContinue
-javac -d out src\*.java
-
-# 3) Run
-java -cp out LibraryManagementSystem
 ```
-
-If you prefer compiling in-place without `out`:
-
-```powershell
-javac src\*.java
-java -cp src LibraryManagementSystem
+git clone https://github.com/nilupul-madhusanka/mid-exam-dsa-lms.git
 ```
 
 ## Data Structures at a glance
