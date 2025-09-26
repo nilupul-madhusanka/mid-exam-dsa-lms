@@ -1,4 +1,4 @@
-// BorrowQueue: This Implements a circular queue for handling borrow requests in the library
+// This BorrowQueue Implements a circular queue for handling borrow requests in the library
 class BorrowQueue {
     // Maximum number of requests the queue can hold
     private static final int MAX = 100;
@@ -9,7 +9,7 @@ class BorrowQueue {
     // Pointers to track the front and rear of the queue
     private int front = 0;   // first element
     private int rear = -1;   // last element
-    private int size = 0;    // how many elements are currently in the queue?
+    private int size = 0;    // current queue size
 
     // This is the way to Add a borrow request to the queue
     public void enqueue(String request) {

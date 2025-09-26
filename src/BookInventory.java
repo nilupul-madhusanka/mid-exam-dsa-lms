@@ -1,17 +1,17 @@
 // This is the Class representing a Book object with ISBN, title, and author
 class Book {
-    String isbn;   // Unique identifier for the book
-    String title;  // Title
-    String author; // Author
+    String isbn;
+    String title;
+    String author;
 
-    // Constructor to initialize a new Book object
+    // Constructor
     Book(String isbn, String title, String author) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
     }
 
-    // Overriding toString() to print book details in a nice format
+    // Overriding toString() method
     @Override
     public String toString() {
         return "[" + isbn + "] " + title + " by " + author;
@@ -21,9 +21,9 @@ class Book {
 // This is the Node of the Binary Search Tree
 // that stores a book and references to left/right children
 class BookNode {
-    Book book;        // Book data stored at this node
-    BookNode left;    // Left child node (smaller ISBNs go here)
-    BookNode right;   // Right child node (larger ISBNs go here)
+    Book book;        // Book node
+    BookNode left;    // Left child node (small)
+    BookNode right;   // Right child node (large)
 
     // This is the Constructor to create a new node with a given book
     BookNode(Book book) {
@@ -34,7 +34,7 @@ class BookNode {
 
 // Binary Search Tree for managing book inventory
 public class BookInventory {
-    private BookNode root; // Root node of the BST
+    private BookNode root; // Root node
 
     // This Checks if the inventory is empty
     public boolean isEmpty() {
@@ -51,7 +51,7 @@ public class BookInventory {
             root.left = insertRec(root.left, book);
         else if (book.isbn.compareTo(root.book.isbn) > 0)
             root.right = insertRec(root.right, book);
-        // If ISBN is equal, do nothing (we assume ISBN is unique)
+        // If ISBN is equal, do nothing (I assume ISBN is unique)
 
         return root; // Return the unchanged root
     }
@@ -107,12 +107,6 @@ public class BookInventory {
 
     // -------- Lookup helpers to manage book inventory -------- //
 
-    // Check if a book exists in the tree by ISBN
-    public boolean containsIsbn(String isbn) {
-        if (isbn == null || isbn.trim().isEmpty()) return false; // Guard against invalid input
-        return containsIsbnRec(root, isbn.trim()); // Call recursive helper
-    }
-
     // Recursive search by ISBN
     private boolean containsIsbnRec(BookNode node, String isbn) {
         if (node == null) return false; // Not found
@@ -123,15 +117,14 @@ public class BookInventory {
         return containsIsbnRec(node.right, isbn);              // Search right
     }
 
-    // This Checks if a book exists by title (case-insensitive)
-    public boolean containsTitle(String title) {
-        if (title == null || title.trim().isEmpty()) return true; // Edge case
-        String t = title.trim().toLowerCase();
-        // Return true if NOT found → Notice the negation here (!)
-        return !containsTitleRec(root, t);
+    // Check if a book exists in the tree by ISBN
+    public boolean containsIsbn(String isbn) {
+        if (isbn == null || isbn.trim().isEmpty()) return false; // Guard against invalid input
+        return containsIsbnRec(root, isbn.trim()); // Call recursive helper
     }
 
-    // Recursive search by title (must traverse an entire tree since BST is sorted by ISBN, not title)
+
+    // Recursive search by title
     private boolean containsTitleRec(BookNode node, String lowerTitle) {
         if (node == null) return false;
 
@@ -141,6 +134,14 @@ public class BookInventory {
 
         // Search both left and right subtrees
         return containsTitleRec(node.left, lowerTitle) || containsTitleRec(node.right, lowerTitle);
+    }
+
+    // This Checks if a book exists by title
+    public boolean containsTitle(String title) {
+        if (title == null || title.trim().isEmpty()) return true; // Edge case
+        String t = title.trim().toLowerCase();
+        // Return true if NOT found → Notice the negation here (!)
+        return !containsTitleRec(root, t);
     }
 
     // -------- Traversal -------- //
@@ -153,9 +154,9 @@ public class BookInventory {
     // Recursive inorder traversal: Left → Node → Right
     private void inorderRec(BookNode root) {
         if (root != null) {
-            inorderRec(root.left);                 // Visit the left subtree
-            System.out.println(root.book);         // Visit current node
-            inorderRec(root.right);                // Visit the right subtree
+            inorderRec(root.left);                 // Looking the left subtree
+            System.out.println(root.book);         // Looking current node
+            inorderRec(root.right);                // Looking the right subtree
         }
     }
 }

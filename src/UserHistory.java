@@ -12,7 +12,7 @@ class HistoryNode {
     }
 }
 
-// This is the UserHistory class: manages borrowed/returned book histories for multiple users
+// This is the UserHistory class, manages borrowed/returned book histories for multiple users
 public class UserHistory {
     // A HashMap to store each user's history (username -> linked list of HistoryNodes)
     private final HashMap<String, HistoryNode> userHistories = new HashMap<>();

@@ -6,16 +6,16 @@ public class LibraryManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // --- These are Our 4 main modules (from the separate files) ---
+        // --- These are Our 4 main modules ---
         BookInventory inventory = new BookInventory();   // BST for storing books
         BorrowQueue borrowQueue = new BorrowQueue();     // Queue for borrow requests
         ReturnStack returnStack = new ReturnStack();     // Stack for returned books
         UserHistory history = new UserHistory();         // Linked List for user histories
 
-        // Track currently issued books by normalized title (case-insensitive)
+        // Track currently issued books by normalized title
         Map<String, Integer> issuedCounts = new HashMap<>();
 
-        // For menu selection variable
+        // menu selection variable
         int choice;
 
         do {

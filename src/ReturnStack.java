@@ -1,4 +1,4 @@
-// ReturnStack: This Implements a stack data structure for handling returned books
+// This ReturnStack Implements a stack data structure for handling returned books
 class ReturnStack {
     // Maximum number of books the stack can hold
     private final int MAX = 100;
