@@ -1,18 +1,18 @@
 import java.util.HashMap;
 
-// Node class to represent each book in a user's history (Linked List node)
+// This is the Node class to represent each book in a user's history (Linked List node)
 class HistoryNode {
     String bookTitle;   // Title of the borrowed book
     HistoryNode next;   // Pointer to the next book in the list
 
-    // Constructor to create a new history node
+    // This is the Constructor to create a new history node
     HistoryNode(String bookTitle) {
         this.bookTitle = bookTitle;
         this.next = null;
     }
 }
 
-// UserHistory class: manages borrowed/returned book histories for multiple users
+// This is the UserHistory class: manages borrowed/returned book histories for multiple users
 public class UserHistory {
     // A HashMap to store each user's history (username -> linked list of HistoryNodes)
     private final HashMap<String, HistoryNode> userHistories = new HashMap<>();

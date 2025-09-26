@@ -1,4 +1,4 @@
-// Class representing a Book object with ISBN, title, and author
+// This is the Class representing a Book object with ISBN, title, and author
 class Book {
     String isbn;   // Unique identifier for the book
     String title;  // Title
@@ -18,13 +18,14 @@ class Book {
     }
 }
 
-// Node of the Binary Search Tree, which stores a book and references to left/right children
+// This is the Node of the Binary Search Tree
+// that stores a book and references to left/right children
 class BookNode {
     Book book;        // Book data stored at this node
     BookNode left;    // Left child node (smaller ISBNs go here)
     BookNode right;   // Right child node (larger ISBNs go here)
 
-    // Constructor to create a new node with a given book
+    // This is the Constructor to create a new node with a given book
     BookNode(Book book) {
         this.book = book;
         this.left = this.right = null; // No children initially
@@ -35,7 +36,7 @@ class BookNode {
 public class BookInventory {
     private BookNode root; // Root node of the BST
 
-    // Check if the inventory is empty
+    // This Checks if the inventory is empty
     public boolean isEmpty() {
         return root == null;
     }
@@ -104,7 +105,7 @@ public class BookInventory {
         return min;
     }
 
-    // -------- Lookup helpers -------- //
+    // -------- Lookup helpers to manage book inventory -------- //
 
     // Check if a book exists in the tree by ISBN
     public boolean containsIsbn(String isbn) {
@@ -122,7 +123,7 @@ public class BookInventory {
         return containsIsbnRec(node.right, isbn);              // Search right
     }
 
-    // Check if a book exists by title (case-insensitive)
+    // This Checks if a book exists by title (case-insensitive)
     public boolean containsTitle(String title) {
         if (title == null || title.trim().isEmpty()) return true; // Edge case
         String t = title.trim().toLowerCase();
@@ -144,7 +145,7 @@ public class BookInventory {
 
     // -------- Traversal -------- //
 
-    // Public method to display all books in sorted order (in-order traversal)
+    // This is the Public method to display all books in sorted order using in-order traversal
     public void inorder() {
         inorderRec(root);
     }

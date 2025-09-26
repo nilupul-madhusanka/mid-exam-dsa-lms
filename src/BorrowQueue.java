@@ -1,4 +1,4 @@
-// BorrowQueue: Implements a circular queue for handling borrow requests in the library
+// BorrowQueue: This Implements a circular queue for handling borrow requests in the library
 class BorrowQueue {
     // Maximum number of requests the queue can hold
     private static final int MAX = 100;
@@ -11,7 +11,7 @@ class BorrowQueue {
     private int rear = -1;   // last element
     private int size = 0;    // how many elements are currently in the queue?
 
-    // Add a borrow request to the queue
+    // This is the way to Add a borrow request to the queue
     public void enqueue(String request) {
         if (size == MAX) { // Check if the queue is full or not
             System.out.println("Queue is full!");
@@ -25,7 +25,7 @@ class BorrowQueue {
         size++;
     }
 
-    // Remove and return the oldest borrow request (FIFO order)
+    // This is the way to Remove and return the oldest borrow request (FIFO order)
     public String dequeue() {
         if (size == 0) { // Check if the queue is empty or not
             System.out.println("Queue is empty!");
@@ -40,7 +40,7 @@ class BorrowQueue {
         return request; // Return the removed request
     }
 
-    // Display all borrow requests in the queue in the correct order
+    // This is the way to Display all borrow requests in the queue in the correct order
     public void display() {
         if (size == 0) { // If the queue has no requests
             System.out.println("Queue is empty!");

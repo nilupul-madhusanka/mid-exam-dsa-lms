@@ -1,4 +1,4 @@
-// ReturnStack: Implements a stack data structure for handling returned books
+// ReturnStack: This Implements a stack data structure for handling returned books
 class ReturnStack {
     // Maximum number of books the stack can hold
     private final int MAX = 100;
@@ -9,7 +9,7 @@ class ReturnStack {
     // Pointer to track the top of the stack
     private int top = -1;  // -1 means the stack is currently empty
 
-    // Push: Add a book onto the stack
+    // This is the push method to Add a book onto the stack
     public void push(String book) {
         // Check if the stack is already full
         if (top == MAX - 1) {
@@ -20,7 +20,7 @@ class ReturnStack {
         stack[++top] = book;
     }
 
-    // Pop: Remove and return the most recently returned book (LIFO order)
+    // This is the pop method to Remove and return the most recently returned book (LIFO order)
     public String pop() {
         // Check if the stack is empty
         if (top == -1) {

@@ -6,7 +6,7 @@ public class LibraryManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // --- Our 4 main modules (from the separate files) ---
+        // --- These are Our 4 main modules (from the separate files) ---
         BookInventory inventory = new BookInventory();   // BST for storing books
         BorrowQueue borrowQueue = new BorrowQueue();     // Queue for borrow requests
         ReturnStack returnStack = new ReturnStack();     // Stack for returned books
@@ -15,7 +15,8 @@ public class LibraryManagementSystem {
         // Track currently issued books by normalized title (case-insensitive)
         Map<String, Integer> issuedCounts = new HashMap<>();
 
-        int choice; // For menu selection variable
+        // For menu selection variable
+        int choice;
 
         do {
             // --- Display the Menu ---
@@ -254,6 +255,3 @@ public class LibraryManagementSystem {
         }
     }
 }
-
-// After All, let's do a demo of our Library Management System!
-// For example, I am adding 3 books just like this graph
