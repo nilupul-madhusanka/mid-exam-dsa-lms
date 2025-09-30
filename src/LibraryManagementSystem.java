@@ -7,10 +7,10 @@ public class LibraryManagementSystem {
         Scanner sc = new Scanner(System.in);
 
         // --- These are Our 4 main modules ---
-        BookInventory inventory = new BookInventory();   // BST for storing books
-        BorrowQueue borrowQueue = new BorrowQueue();     // Queue for borrow requests
-        ReturnStack returnStack = new ReturnStack();     // Stack for returned books
-        UserHistory history = new UserHistory();         // Linked List for user histories
+        BookInventory inventory = new BookInventory();
+        BorrowQueue borrowQueue = new BorrowQueue();
+        ReturnStack returnStack = new ReturnStack();
+        UserHistory history = new UserHistory();
 
         // Track currently issued books by normalized title
         Map<String, Integer> issuedCounts = new HashMap<>();
@@ -51,7 +51,7 @@ public class LibraryManagementSystem {
 
             // --- Handle menu actions ---
             switch (choice) {
-                // 1. Add a new book to inventory (BST)
+                // Add a new book to inventory (BST)
                 case 1:
                     String isbn = readNonEmpty(sc, "Enter ISBN: ");
                     String title = readNonEmpty(sc, "Enter Title: ");
@@ -60,7 +60,7 @@ public class LibraryManagementSystem {
                     System.out.println("Book added!");
                     break;
 
-                // 2. Delete a book from inventory
+                // Delete a book from inventory
                 case 2:
                     String delIsbn = readNonEmpty(sc, "Enter ISBN to delete: ");
                     if (!inventory.containsIsbn(delIsbn)) {
@@ -71,7 +71,7 @@ public class LibraryManagementSystem {
                     }
                     break;
 
-                // 3. Display all books in sorted order (in-order traversal of BST)
+                // Display all books in sorted order (in-order traversal of BST)
                 case 3:
                     if (inventory.isEmpty()) {
                         System.out.println("No books available.");
@@ -81,21 +81,21 @@ public class LibraryManagementSystem {
                     }
                     break;
 
-                // 4. Borrow a book (add to borrow queue)
+                // Borrow a book (add to borrow queue)
                 case 4:
                     String borrowUser = readNonEmpty(sc, "Enter Username: ");
                     String borrowTitle = readNonEmpty(sc, "Enter Book Title to Borrow: ");
                     if (inventory.containsTitle(borrowTitle)) {
                         System.out.println("Cannot request: '" + borrowTitle + "' is not available in inventory.");
                     } else {
-                        // Request stored as "username|title" in queue
+
                         borrowQueue.enqueue(borrowUser + "|" + borrowTitle);
-                        // History not updated yet → will be updated only when issued
+
                         System.out.println("Borrow request added for " + borrowUser + " => " + borrowTitle);
                     }
                     break;
 
-                // 5. Issue a book (dequeue from borrow queue and update user history)
+                // Issue a book (dequeue from borrow queue and update user history)
                 case 5:
                     String issuedItem = borrowQueue.dequeue();
                     if (issuedItem == null) {
@@ -125,12 +125,12 @@ public class LibraryManagementSystem {
                     }
                     break;
 
-                // 6. Display current borrow queue
+                // Display current borrow queue
                 case 6:
                     borrowQueue.display();
                     break;
 
-                // 7. Record a book being returned (push onto stack)
+                // Record a book being returned (push onto stack)
                 case 7:
                     String retBook = readNonEmpty(sc, "Enter Returned Book Title: ");
                     // Validate: the title must exist in the catalog
@@ -146,7 +146,7 @@ public class LibraryManagementSystem {
                     }
                     break;
 
-                // 8. Process the latest return (pop from stack)
+                // Process the latest return (pop from stack)
                 case 8:
                     String processed = returnStack.pop();
                     if (processed != null) {
@@ -163,26 +163,25 @@ public class LibraryManagementSystem {
                     returnStack.display();
                     break;
 
-                // 9. Manually remove a book from a user's history
+                // Manually remove a book from a user's history
                 case 9:
                     String user2 = readNonEmpty(sc, "Enter Username: ");
                     String remBook = readNonEmpty(sc, "Enter Book Title to remove from History: ");
                     history.removeBook(user2, remBook);
                     break;
 
-                // 10. Display history for one user
+                // Display history for one user
                 case 10:
                     String userHis = readNonEmpty(sc, "Enter Username: ");
                     history.displayHistory(userHis);
                     break;
 
-                // 11. Display all users' histories
+                // Display all users' histories
                 case 11:
                     System.out.println("All Users' Histories:");
                     history.displayAllHistories();
                     break;
 
-                // 0. Exit program
                 case 0:
                     System.out.println("Exiting System...");
                     break;

@@ -2,10 +2,9 @@ import java.util.HashMap;
 
 // This is the Node class to represent each book in a user's history (Linked List node)
 class HistoryNode {
-    String bookTitle;   // Title of the borrowed book
-    HistoryNode next;   // Pointer to the next book in the list
+    String bookTitle;
+    HistoryNode next;
 
-    // This is the Constructor to create a new history node
     HistoryNode(String bookTitle) {
         this.bookTitle = bookTitle;
         this.next = null;

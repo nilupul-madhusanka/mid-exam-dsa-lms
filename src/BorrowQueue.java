@@ -13,7 +13,7 @@ class BorrowQueue {
 
     // This is the way to Add a borrow request to the queue
     public void enqueue(String request) {
-        if (size == MAX) { // Check if the queue is full or not
+        if (size == MAX) {
             System.out.println("Queue is full!");
             return;
         }
@@ -27,7 +27,7 @@ class BorrowQueue {
 
     // This is the way to Remove and return the oldest borrow request (FIFO order)
     public String dequeue() {
-        if (size == 0) { // Check if the queue is empty or not
+        if (size == 0) {
             System.out.println("Queue is empty!");
             return null;
         }
@@ -42,7 +42,7 @@ class BorrowQueue {
 
     // This is the way to Display all borrow requests in the queue in the correct order
     public void display() {
-        if (size == 0) { // If the queue has no requests
+        if (size == 0) {
             System.out.println("Queue is empty!");
             return;
         }
