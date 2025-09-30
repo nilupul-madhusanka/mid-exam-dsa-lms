@@ -60,7 +60,7 @@ The CLI exposes these options:
 ## How to Run on any IDE (IntelliJ IDEA Recommended)
 Prerequisites: JDK 8+ in PATH.
 
-### Clone the repository and navigate to the root of the mid-lms folder. Open it in your IDE. After opening, you can see the src/LibraryManagementSystem.java file and run it easily.
+### Clone the repository and navigate to the root of the mid-exam-dsa-lms folder. Open it in your IDE. After opening, you can see the src/LibraryManagementSystem.java file and run it easily.
 
 ```
 git clone https://github.com/nilupul-madhusanka/mid-exam-dsa-lms.git
